@@ -31,17 +31,35 @@ This is a library to help you use RxSwift 3.0 or higher with Firebase 3.0 or hig
 
   s.source_files = 'RxFirebase/Classes/**/*'
 
-    s.frameworks = 'UIKit'
-    s.dependency 'RxSwift', '~> 3.0'
-    s.dependency 'Firebase/Database'
-    s.dependency 'Firebase/Auth'
-    s.dependency 'Firebase/Analytics'
-    s.dependency 'Firebase/RemoteConfig'
-    s.dependency 'Firebase/Storage'
+  s.dependency 'RxSwift', '~> 3.0'
+  s.dependency 'Firebase/Database'
+  s.dependency 'Firebase/Auth'
+  s.dependency 'Firebase/Analytics'
+  s.dependency 'Firebase/RemoteConfig'
+  s.dependency 'Firebase/Storage'
 
-    s.vendored_framework = 'FirebaseCore', 'FirebaseAnalytics', 'FirebaseDatabase'
+  s.frameworks = 'FirebaseCore', 'FirebaseDatabase', 'FirebaseAnalytics', 'FirebaseAuth', 'FirebaseRemoteConfig', 'FirebaseStorage', 'GoogleSymbolUtilities', 'GoogleInterchangeUtilities'
 
-    s.xcconfig = {
-        "FRAMEWORK_SEARCH_PATHS" => "'$(PODS_ROOT)/FirebaseDatabase/Frameworks'"
-    }
+  frameworks = [
+        '$(PODS_ROOT)/FirebaseCore/Frameworks',
+        '$(PODS_ROOT)/FirebaseCore/Frameworks/frameworks',
+        '$(PODS_ROOT)/FirebaseDatabase/Frameworks',
+        '$(PODS_ROOT)/FirebaseDatabase/Frameworks/frameworks',
+        '$(PODS_ROOT)/FirebaseAnalytics/Frameworks',
+        '$(PODS_ROOT)/FirebaseAnalytics/Frameworks/frameworks',
+        '$(PODS_ROOT)/FirebaseAuth/Frameworks',
+        '$(PODS_ROOT)/FirebaseAuth/Frameworks/frameworks',
+        '$(PODS_ROOT)/FirebaseRemoteConfig/Frameworks',
+        '$(PODS_ROOT)/FirebaseRemoteConfig/Frameworks/frameworks',
+        '$(PODS_ROOT)/FirebaseStorage/Frameworks',
+        '$(PODS_ROOT)/FirebaseStorage/Frameworks/frameworks',
+        '$(PODS_ROOT)/GoogleSymbolUtilities/Frameworks',
+        '$(PODS_ROOT)/GoogleSymbolUtilities/Frameworks/frameworks',
+        '$(PODS_ROOT)/GoogleInterchangeUtilities/Frameworks',
+        '$(PODS_ROOT)/GoogleInterchangeUtilities/Frameworks/frameworks',
+  ]
+
+  s.pod_target_xcconfig = {
+      "FRAMEWORK_SEARCH_PATHS" => frameworks.join(" "),
+  }
 end
