@@ -18,11 +18,10 @@ Pod::Spec.new do |s|
 #   * Finally, don't worry about the indent, CocoaPods strips it!
 
   s.description      = <<-DESC
-This is a library to help you use RxSwift 2.5 or higher with Firebase 3.0 or higher.
+This is a library to help you use RxSwift 3.0 or higher with Firebase 3.0 or higher.
                        DESC
 
   s.homepage         = "https://github.com/RxSwiftCommunity/RxFirebase"
-  # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Maximilian Alexander" => "max@zinkpulse.com" }
   s.source           = { :git => "https://github.com/RxSwiftCommunity/RxFirebase.git", :tag => s.version.to_s }
@@ -33,12 +32,16 @@ This is a library to help you use RxSwift 2.5 or higher with Firebase 3.0 or hig
   s.source_files = 'RxFirebase/Classes/**/*'
 
     s.frameworks = 'UIKit'
-    s.dependency 'RxSwift', '~> 2.5'
+    s.dependency 'RxSwift', '~> 3.0'
     s.dependency 'Firebase/Database'
     s.dependency 'Firebase/Auth'
+    s.dependency 'Firebase/Analytics'
+    s.dependency 'Firebase/RemoteConfig'
+    s.dependency 'Firebase/Storage'
+
+    s.vendored_framework = 'FirebaseCore', 'FirebaseAnalytics', 'FirebaseDatabase'
 
     s.xcconfig = {
-        "FRAMEWORK_SEARCH_PATHS" => "'$(PODS_ROOT)/FirebaseDatabase'"
+        "FRAMEWORK_SEARCH_PATHS" => "'$(PODS_ROOT)/FirebaseDatabase/Frameworks'"
     }
-    s.vendored_frameworks = ["${PODS_ROOT}/FirebaseDatabase/Frameworks/FirebaseDatabase.framework"]
 end

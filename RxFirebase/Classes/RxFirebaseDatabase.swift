@@ -9,7 +9,7 @@
 import FirebaseDatabase
 import RxSwift
 
-public extension FIRDatabaseQuery {
+public extension Reactive where Base: FIRDatabaseQuery {
     /**
      Listen for data changes at a particular location.
      This is the primary way to read data from the Firebase Database. The observers 
@@ -17,13 +17,11 @@ public extension FIRDatabaseQuery {
      
      @param eventType The type of event to listen for.
     */
-    func rx_observe(eventType: FIRDataEventType) -> Observable<FIRDataSnapshot> {
+    func observe(_ eventType: FIRDataEventType) -> Observable<FIRDataSnapshot> {
         return Observable.create { observer in
-            let handle = self.observeEventType(eventType) { (snapshot) in
-                observer.onNext(snapshot)
-            }
-            return AnonymousDisposable {
-                self.removeObserverWithHandle(handle)
+            let handle = self.base.observe(eventType, with: observer.onNext, withCancel: observer.onError)
+            return Disposables.create {
+                self.base.removeObserver(withHandle: handle)
             }
         }
     }
@@ -36,70 +34,62 @@ public extension FIRDatabaseQuery {
      
      @param eventType The type of event to listen for.
     */
-    func rx_observeWithSiblingKey(eventType: FIRDataEventType) -> Observable<(FIRDataSnapshot, String?)> {
+    func observeWithPreviousSiblingKey(_ eventType: FIRDataEventType) -> Observable<(FIRDataSnapshot, String?)> {
         return Observable.create { observer in
-            let handle = self.observeEventType(eventType, andPreviousSiblingKeyWithBlock: { (snapshot, siblingKey) in
-                observer.onNext((snapshot, siblingKey))
-            })
-            return AnonymousDisposable {
-                self.removeObserverWithHandle(handle)
+            let handle = self.base.observe(eventType,
+                                           andPreviousSiblingKeyWith: observer.onNext,
+                                           withCancel: observer.onError)
+            return Disposables.create {
+                self.base.removeObserver(withHandle: handle)
             }
         }
     }
     
     /**
-     This is equivalent to rx_observe(), except the observer is immediately canceled after the initial data is returned.
+     This is equivalent to observe(), except the observer is immediately canceled after the initial data is returned.
      
      @param eventType The type of event to listen for.
     */
-    func rx_observeSingleEventOfType(eventType: FIRDataEventType) -> Observable<FIRDataSnapshot> {
+    func observeSingleEvent(of eventType: FIRDataEventType) -> Observable<FIRDataSnapshot> {
         return Observable.create { observer in
-            self.observeSingleEventOfType(eventType, withBlock: { (snapshot) in
+            self.base.observeSingleEvent(of: eventType, with: { (snapshot) in
                 observer.onNext(snapshot)
                 observer.onCompleted()
-            })
-            
-            return NopDisposable.instance
+            }, withCancel: observer.onError)
+
+            return Disposables.create()
         }
     }
     
     /**
-     This is equivalent to rx_observeWithSiblingKey(), except the observer is immediately 
+     This is equivalent to observeWithSiblingKey(), except the observer is immediately
      canceled after the initial data is returned.
      
      @param eventType The type of event to listen for.
     */
-    func rx_observeSingleEventOfTypeWithSiblingKey(eventType: FIRDataEventType) -> Observable<(FIRDataSnapshot, String?)> {
+    func observeSingleEvent(of eventType: FIRDataEventType) -> Observable<(FIRDataSnapshot, String?)> {
         return Observable.create { observer in
-            self.observeSingleEventOfType(eventType, andPreviousSiblingKeyWithBlock: { (snapshot, string) in
+            self.base.observeSingleEvent(of: eventType, andPreviousSiblingKeyWith: { (snapshot, string) in
                 observer.onNext((snapshot, string))
                 observer.onCompleted()
-            })
-            return NopDisposable.instance
+            }, withCancel: observer.onError)
+            return Disposables.create()
         }
     }
 }
 
-public extension FIRDatabaseReference {
+public extension Reactive where Base: FIRDatabaseReference {
     /**
      Update changes the values at the specified paths in the dictionary without 
      overwriting other keys at this location
      
      @param values A dictionary of keys to change and their new values
     */
-    func rx_updateChildValues(values: [String : AnyObject]) -> Observable<FIRDatabaseReference> {
+    func updateChildValues(_ values: [AnyHashable : Any]) -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.updateChildValues(values, withCompletionBlock: { (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                    return
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
+            self.base.updateChildValues(values, withCompletionBlock: parseFirebaseResponse(observer))
             
-            return NopDisposable.instance
+            return Disposables.create()
         }
     }
     
@@ -122,23 +112,16 @@ public extension FIRDatabaseReference {
      Passing null for the new value is equivalent to calling remove()
      all data at this location or any child location will be deleted.
      
-     Note that rx_setValue() will remove any priority stored at this location, 
+     Note that setValue() will remove any priority stored at this location,
      so if priority is meant to be preserved, you should use setValue(value:, priority:) instead.
      
      @param value The value to be written
      @param priority The Priority to be attached to the data.
     */
-    func rx_setValue(value: AnyObject!, priority: AnyObject? = nil) -> Observable<FIRDatabaseReference> {
+    func setValue(_ value: Any?, priority: Any? = nil) -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.setValue(value, andPriority: priority, withCompletionBlock: { (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.setValue(value, andPriority: priority, withCompletionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     
@@ -149,17 +132,10 @@ public extension FIRDatabaseReference {
      will be triggered. Synchronization of the delete to the Firebase Database servers will 
      also be started.
     */
-    func rx_removeValue() -> Observable<FIRDatabaseReference> {
+    func removeValue() -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.removeValueWithCompletionBlock({ (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.removeValue(completionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     /**
@@ -173,17 +149,10 @@ public extension FIRDatabaseReference {
      
      @param block This block receives the current data at this location and must return an instance of FIRTransactionResult
     */
-    func rx_runTransactionBlock(block: ((FIRMutableData!) -> FIRTransactionResult)!) -> Observable<(isCommitted: Bool, snapshot: FIRDataSnapshot?)> {
+    func runTransactionBlock(block: @escaping ((FIRMutableData) -> FIRTransactionResult)) -> Observable<(Bool, FIRDataSnapshot)> {
         return Observable.create { observer in
-            self.runTransactionBlock(block, andCompletionBlock: { (error, isCommitted, snapshot) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext((isCommitted, snapshot))
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.runTransactionBlock(block, andCompletionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     
@@ -210,17 +179,10 @@ public extension FIRDatabaseReference {
      
      @param priority The priority to set at the specified location.
      */
-    func rx_setPriority(priority : AnyObject) -> Observable<FIRDatabaseReference> {
+    func setPriority(priority : Any?) -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.setPriority(priority, withCompletionBlock: { (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.setPriority(priority, withCompletionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     
@@ -236,17 +198,10 @@ public extension FIRDatabaseReference {
      @param value The value to be set after the connection is lost.
      @param priority The priority to be set after the connection is lost.
     */
-    func rx_onDisconnectSetValue(value: AnyObject, priority: AnyObject? = nil) -> Observable<FIRDatabaseReference> {
+    func onDisconnectSetValue(_ value: Any?, andPriority priority: Any? = nil) -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.onDisconnectSetValue(value, andPriority: priority, withCompletionBlock: { (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.onDisconnectSetValue(value, andPriority: priority, withCompletionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     
@@ -257,17 +212,10 @@ public extension FIRDatabaseReference {
      
      @param values A dictionary of child node keys and the values to set them to after the connection is lost.
     */
-    func rx_onDisconnectUpdateChildValue(values: [String : AnyObject]) -> Observable<FIRDatabaseReference> {
+    func onDisconnectUpdateChildValue(_ values: [AnyHashable : Any]) -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.onDisconnectUpdateChildValues(values, withCompletionBlock: { (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.onDisconnectUpdateChildValues(values, withCompletionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
     /**
@@ -275,65 +223,25 @@ public extension FIRDatabaseReference {
      the client is disconnected (due to closing the app, navigating
      to a new page, or network issues
      
-     rx_onDisconnectRemoveValue() is especially useful for implementing "presence systems.
+     onDisconnectRemoveValue() is especially useful for implementing "presence systems.
     */
-    func rx_onDisconnectRemoveValue() -> Observable<FIRDatabaseReference> {
+    func onDisconnectRemoveValue() -> Observable<FIRDatabaseReference> {
         return Observable.create { observer in
-            self.onDisconnectRemoveValueWithCompletionBlock({ (error, databaseReference) in
-                if let error = error {
-                    observer.onError(error)
-                } else {
-                    observer.onNext(databaseReference)
-                    observer.onCompleted()
-                }
-            })
-            return NopDisposable.instance
+            self.base.onDisconnectRemoveValue(completionBlock: parseFirebaseResponse(observer))
+            return Disposables.create()
         }
     }
 }
 
 
 public extension ObservableType where E : FIRDataSnapshot {
-    
-    func rx_filterWhenNSNull() -> Observable<E> {
-        return self.filter { (snapshot) -> Bool in
-            return snapshot.value is NSNull
+    func children() -> Observable<[FIRDataSnapshot]> {
+        return self.map { snapshot in
+            guard let children = snapshot.children.allObjects as? [FIRDataSnapshot] else {
+                throw UnknownFirebaseError()
+            }
+
+            return children
         }
     }
-    
-    func rx_filterWhenNotNSNull() -> Observable<E> {
-        return self.filter { (snapshot) -> Bool in
-            return !(snapshot.value is NSNull)
-        }
-    }
-    
-    func rx_children() -> Observable<FIRDataSnapshot> {
-        return self.flatMap({ (snapshot) -> Observable<FIRDataSnapshot> in
-            return Observable.create { observer in
-                
-                for snapChild in snapshot.children {
-                    if let snapChild = snapChild as? FIRDataSnapshot {
-                        observer.onNext(snapChild)
-                    }
-                }
-                observer.onCompleted()
-                
-                return NopDisposable.instance
-            }
-        })
-    }
-    
-    func rx_childrenAsArray() -> Observable<[FIRDataSnapshot]> {
-        return self.flatMap({ (snapshot) -> Observable<[FIRDataSnapshot]> in
-            return Observable.create { observer in
-                if let array = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    observer.onNext(array)
-                }
-                observer.onCompleted()
-                
-                return NopDisposable.instance
-            }
-        })
-    }
-    
 }
