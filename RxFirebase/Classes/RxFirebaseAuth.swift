@@ -21,7 +21,7 @@ public extension Reactive where Base: FIRAuth {
         get {
             return Observable.create { observer in
                 let listener = self.base.addStateDidChangeListener { (auth, user) in
-                    observer.onNext((auth, user))
+                    observer.onNext(user)
                 }
                 return Disposables.create {
                     self.base.removeStateDidChangeListener(listener)
