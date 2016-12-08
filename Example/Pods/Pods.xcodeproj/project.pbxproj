@@ -25,7 +25,7 @@
 		1C9021D6C814964548B006851E354A1D /* ScheduledItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781F3719B12372D98C2278EA0D6C6907 /* ScheduledItemType.swift */; };
 		1CD611AA40DE599D32A0970489BC49A4 /* Empty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ADBD5DCC7ED4D830D9B9A64CFC9536 /* Empty.swift */; };
 		1CE0AA6533A54F81CB75C388CB189238 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DAC5F1FA1008A51A246A77BCF68EA108 /* RxSwift.framework */; };
-		1CEA7ABFF14E768903EAD9D7397919ED /* RxFirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43169286240E9D8B2295A9F624BCD27F /* RxFirebaseStorage.swift */; };
+		1CEA7ABFF14E768903EAD9D7397919ED /* FirebaseStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43169286240E9D8B2295A9F624BCD27F /* FirebaseStorage.swift */; };
 		1D2F0D8AE15ACC572925F7D1B66DA725 /* String+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA16A11AF5A0073322AE26B646F78441 /* String+Rx.swift */; };
 		1D4AFB63AE17D27B0B3D41B1034B9C5D /* ScheduledDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49E8DF0D81D538ADA08A439FA33996E5 /* ScheduledDisposable.swift */; };
 		1DC62A577E3558E9193FC34E748FAF42 /* ReplaySubject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD96DADEC12E75326B5C5DDBBE26502 /* ReplaySubject.swift */; };
@@ -61,8 +61,8 @@
 		40185A7750626633F009AABC9D972BEC /* CompositeDisposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDA19D2CD77808FB6386C2262D087E5D /* CompositeDisposable.swift */; };
 		41BA86469CC9B7E0946CC5AD820D3C5D /* DispatchQueue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88033377A59F1DC3E4A88231B3CA6CFF /* DispatchQueue+Extensions.swift */; };
 		41E77978C072A017D2746BEB93E0394F /* Timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90A6D10008E71BE20508ADCDBAB9FAF0 /* Timeout.swift */; };
-		41EA0825083C3D2F3EA22E009BB812C1 /* RxFirebaseRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2E6CB9982FAF00E4F9167B10B1ECE /* RxFirebaseRemoteConfig.swift */; };
-		42006568276EF328042829ABFE5F1497 /* RxFirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC124433842A14E6DEC43EA08AF4F /* RxFirebaseAuth.swift */; };
+		41EA0825083C3D2F3EA22E009BB812C1 /* FirebaseRemoteConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 68F2E6CB9982FAF00E4F9167B10B1ECE /* FirebaseRemoteConfig.swift */; };
+		42006568276EF328042829ABFE5F1497 /* FirebaseAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DCCC124433842A14E6DEC43EA08AF4F /* FirebaseAuth.swift */; };
 		431C023810078C0A79525A56238C4F98 /* SynchronizedDisposeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C37B2573EC9506F2E9D8B90CC19DA9ED /* SynchronizedDisposeType.swift */; };
 		4412CCD6F7F4AE2B5F92D41D083073CD /* Concat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295864215E1D6E7000628E2A41DCAEF /* Concat.swift */; };
 		49147ED58B72D899DC39F9934743C44D /* DisposeBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03C30FE2506E0127356E6958101DEF45 /* DisposeBag.swift */; };
@@ -138,7 +138,7 @@
 		A1BBA9A752DB8B1BD375F06E84667710 /* Observable+Single.swift in Sources */ = {isa = PBXBuildFile; fileRef = F867AADCE704FA7AADE65103B1875D85 /* Observable+Single.swift */; };
 		A2AB2252C5CB27D158745F245C4ED39E /* GTMDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 782A9551EE899A9253C7063384398F6E /* GTMDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A54597A8B9B2E9160D2F2517CA2A9859 /* FirebaseDatabase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A44BADD2926C2DB0376CA71199F4147B /* FirebaseDatabase.framework */; };
-		A5E290FEB0D35E4635D0E7E20167A8CB /* RxFirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B1283EB5C8ED369004AFC77D87C4B /* RxFirebaseDatabase.swift */; };
+		A5E290FEB0D35E4635D0E7E20167A8CB /* FirebaseDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B1283EB5C8ED369004AFC77D87C4B /* FirebaseDatabase.swift */; };
 		AAABBC7D0E5655D65E36DAE183F78612 /* TakeUntil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8BCF90A2CE1FAFBB848E3DB3D62639 /* TakeUntil.swift */; };
 		AC462C10FD8966FCAE43598A449254E1 /* Sequence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309F76F107A24E7F3818096258E4BDE7 /* Sequence.swift */; };
 		AD8D68CEAE8587D9BF7BFD033AAA40A0 /* Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D596104D4D1FCD30BEBE7448ACCC /* Rx.swift */; };
@@ -174,7 +174,7 @@
 		C8E87D326F67721C5CE7282342EBA506 /* CombineLatest+arity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66736788026CC574BC047346EC6B1386 /* CombineLatest+arity.swift */; };
 		C8FF802444EE9D157A2DFDDA52775E77 /* Buffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155A5D014D6A7F35BFB6B2C74BFA3045 /* Buffer.swift */; };
 		C914FBE72FBE783166438EEC6BFBD132 /* CombineLatest+Collection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 977E1105EA8805F583B43FD1FF57E396 /* CombineLatest+Collection.swift */; };
-		CA4378ABD4D3ADDE46DB18EB93BB0261 /* RxFirebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14DB5D3F7C594943BCC860616A5B1D /* RxFirebase.swift */; };
+		CA4378ABD4D3ADDE46DB18EB93BB0261 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA14DB5D3F7C594943BCC860616A5B1D /* Extensions.swift */; };
 		CAB4276A99A07A072485678DB4ADAE7D /* LockOwnerType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C886647ED052161D9A8FA0503AA6C4D /* LockOwnerType.swift */; };
 		D1284F65493C564AE8645761AFCECCB4 /* Pods-RxFirebase_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 47EBC47BBAC18CAE471AABD1819D1326 /* Pods-RxFirebase_Example-dummy.m */; };
 		D170A61ED4CB0A41AB95C5C954769632 /* DistinctUntilChanged.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019E74CACF22ADD91B4F9AB4165D8FD5 /* DistinctUntilChanged.swift */; };
@@ -281,7 +281,7 @@
 		155A5D014D6A7F35BFB6B2C74BFA3045 /* Buffer.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Buffer.swift; path = RxSwift/Observables/Implementations/Buffer.swift; sourceTree = "<group>"; };
 		155E6F3DF3126A5F1759D16B185BA3B3 /* Repeat.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Repeat.swift; path = RxSwift/Observables/Implementations/Repeat.swift; sourceTree = "<group>"; };
 		1640B0FC05DBB715197598980324B2ED /* InfiniteSequence.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = InfiniteSequence.swift; path = Platform/DataStructures/InfiniteSequence.swift; sourceTree = "<group>"; };
-		174B1283EB5C8ED369004AFC77D87C4B /* RxFirebaseDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RxFirebaseDatabase.swift; sourceTree = "<group>"; };
+		174B1283EB5C8ED369004AFC77D87C4B /* FirebaseDatabase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirebaseDatabase.swift; sourceTree = "<group>"; };
 		17AE59659B8390D9BB4721FAD3D6ED8A /* AnonymousDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AnonymousDisposable.swift; path = RxSwift/Disposables/AnonymousDisposable.swift; sourceTree = "<group>"; };
 		17F1D596104D4D1FCD30BEBE7448ACCC /* Rx.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Rx.swift; path = RxSwift/Rx.swift; sourceTree = "<group>"; };
 		189293E0AE1B1F872AA010359A5AEB97 /* ObserveOnSerialDispatchQueue.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ObserveOnSerialDispatchQueue.swift; path = RxSwift/Observables/Implementations/ObserveOnSerialDispatchQueue.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 		424AC79F15B6071E9D7C6E2AA3884611 /* Observable+Creation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Creation.swift"; path = "RxSwift/Observables/Observable+Creation.swift"; sourceTree = "<group>"; };
 		42A9321C72C8ABDA7459DCA18DF8A826 /* ToArray.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ToArray.swift; path = RxSwift/Observables/Implementations/ToArray.swift; sourceTree = "<group>"; };
 		42E9943D2A83FF5456F3B8D2A9F7ADBF /* GTMNSString+URLArguments.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "GTMNSString+URLArguments.h"; path = "Foundation/GTMNSString+URLArguments.h"; sourceTree = "<group>"; };
-		43169286240E9D8B2295A9F624BCD27F /* RxFirebaseStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RxFirebaseStorage.swift; sourceTree = "<group>"; };
+		43169286240E9D8B2295A9F624BCD27F /* FirebaseStorage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirebaseStorage.swift; sourceTree = "<group>"; };
 		4465056806C1065C056E35910BF90150 /* DispatchQueueConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DispatchQueueConfiguration.swift; path = RxSwift/Schedulers/Internal/DispatchQueueConfiguration.swift; sourceTree = "<group>"; };
 		4522D968FB28840B4C6310BDD8BC84EB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45DF63B388C99A4A94D47CCC26496B01 /* Pods-RxFirebase_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-RxFirebase_Example.modulemap"; sourceTree = "<group>"; };
@@ -368,7 +368,7 @@
 		67B3D16CE0FD916FD280F8ECC144CC6C /* Observable+Time.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Observable+Time.swift"; path = "RxSwift/Observables/Observable+Time.swift"; sourceTree = "<group>"; };
 		67E4E2562D459CACB217ED2D8099598A /* SubscriptionDisposable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SubscriptionDisposable.swift; path = RxSwift/Disposables/SubscriptionDisposable.swift; sourceTree = "<group>"; };
 		6836C9DBDDAF4921F26344836C86CE08 /* Debunce.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debunce.swift; path = RxSwift/Observables/Implementations/Debunce.swift; sourceTree = "<group>"; };
-		68F2E6CB9982FAF00E4F9167B10B1ECE /* RxFirebaseRemoteConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RxFirebaseRemoteConfig.swift; sourceTree = "<group>"; };
+		68F2E6CB9982FAF00E4F9167B10B1ECE /* FirebaseRemoteConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirebaseRemoteConfig.swift; sourceTree = "<group>"; };
 		6A5D211DB7C48943EA9869B1BBDFC5E5 /* RecursiveScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RecursiveScheduler.swift; path = RxSwift/Schedulers/RecursiveScheduler.swift; sourceTree = "<group>"; };
 		6A61877046D38D62DE83DD18D2E763A5 /* GoogleToolboxForMac.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = GoogleToolboxForMac.modulemap; sourceTree = "<group>"; };
 		6AE34A21A580F942E1A1477F489F3D79 /* ImmediateSchedulerType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ImmediateSchedulerType.swift; path = RxSwift/ImmediateSchedulerType.swift; sourceTree = "<group>"; };
@@ -415,7 +415,7 @@
 		977E1105EA8805F583B43FD1FF57E396 /* CombineLatest+Collection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "CombineLatest+Collection.swift"; path = "RxSwift/Observables/Implementations/CombineLatest+Collection.swift"; sourceTree = "<group>"; };
 		9924C1D3C05631BB1E79F3A87EE1673F /* Generate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generate.swift; path = RxSwift/Observables/Implementations/Generate.swift; sourceTree = "<group>"; };
 		99AD3BD06611C445FC45DECDEE37FF75 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Frameworks/frameworks/FirebaseRemoteConfig.framework; sourceTree = "<group>"; };
-		9DCCC124433842A14E6DEC43EA08AF4F /* RxFirebaseAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RxFirebaseAuth.swift; sourceTree = "<group>"; };
+		9DCCC124433842A14E6DEC43EA08AF4F /* FirebaseAuth.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FirebaseAuth.swift; sourceTree = "<group>"; };
 		9E3D9BFA76D779C54BDFFAF022E594E9 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EB77812E7DF33B1120B4C2334AE4FDC /* RxFirebase-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RxFirebase-dummy.m"; sourceTree = "<group>"; };
 		A21FC91AA8EA4841CAE3B073FD80F075 /* FirebaseRemoteConfig.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FirebaseRemoteConfig.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/FirebaseRemoteConfig.framework; sourceTree = DEVELOPER_DIR; };
@@ -425,7 +425,7 @@
 		A74D6B6B96F10C250D2BECC3FB583CE9 /* Pods-RxFirebase_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-RxFirebase_Example-umbrella.h"; sourceTree = "<group>"; };
 		A7B39318627A912E7FCA5B7FE852C9CE /* Switch.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Switch.swift; path = RxSwift/Observables/Implementations/Switch.swift; sourceTree = "<group>"; };
 		A987B29BFDA53DD1DF990ED7DC8A0DCA /* VirtualTimeScheduler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = VirtualTimeScheduler.swift; path = RxSwift/Schedulers/VirtualTimeScheduler.swift; sourceTree = "<group>"; };
-		AA14DB5D3F7C594943BCC860616A5B1D /* RxFirebase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RxFirebase.swift; sourceTree = "<group>"; };
+		AA14DB5D3F7C594943BCC860616A5B1D /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		ACC99BEA476584063FD0FD70E15E49F9 /* Zip+Collection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Zip+Collection.swift"; path = "RxSwift/Observables/Implementations/Zip+Collection.swift"; sourceTree = "<group>"; };
 		AD8AAA02B4155793F4466D3F6800BA44 /* Pods-RxFirebase_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RxFirebase_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		AD9E0E7D611041B802C3FB3E6E0F826C /* Pods-RxFirebase_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RxFirebase_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -701,11 +701,11 @@
 		5191396F6205756C0455C138172F85B5 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				AA14DB5D3F7C594943BCC860616A5B1D /* RxFirebase.swift */,
-				9DCCC124433842A14E6DEC43EA08AF4F /* RxFirebaseAuth.swift */,
-				174B1283EB5C8ED369004AFC77D87C4B /* RxFirebaseDatabase.swift */,
-				68F2E6CB9982FAF00E4F9167B10B1ECE /* RxFirebaseRemoteConfig.swift */,
-				43169286240E9D8B2295A9F624BCD27F /* RxFirebaseStorage.swift */,
+				AA14DB5D3F7C594943BCC860616A5B1D /* Extensions.swift */,
+				9DCCC124433842A14E6DEC43EA08AF4F /* FirebaseAuth.swift */,
+				174B1283EB5C8ED369004AFC77D87C4B /* FirebaseDatabase.swift */,
+				68F2E6CB9982FAF00E4F9167B10B1ECE /* FirebaseRemoteConfig.swift */,
+				43169286240E9D8B2295A9F624BCD27F /* FirebaseStorage.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1560,11 +1560,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E606CB1D5E7CCBDEB2628E3627904EB2 /* RxFirebase-dummy.m in Sources */,
-				CA4378ABD4D3ADDE46DB18EB93BB0261 /* RxFirebase.swift in Sources */,
-				42006568276EF328042829ABFE5F1497 /* RxFirebaseAuth.swift in Sources */,
-				A5E290FEB0D35E4635D0E7E20167A8CB /* RxFirebaseDatabase.swift in Sources */,
-				41EA0825083C3D2F3EA22E009BB812C1 /* RxFirebaseRemoteConfig.swift in Sources */,
-				1CEA7ABFF14E768903EAD9D7397919ED /* RxFirebaseStorage.swift in Sources */,
+				CA4378ABD4D3ADDE46DB18EB93BB0261 /* Extensions.swift in Sources */,
+				42006568276EF328042829ABFE5F1497 /* FirebaseAuth.swift in Sources */,
+				A5E290FEB0D35E4635D0E7E20167A8CB /* FirebaseDatabase.swift in Sources */,
+				41EA0825083C3D2F3EA22E009BB812C1 /* FirebaseRemoteConfig.swift in Sources */,
+				1CEA7ABFF14E768903EAD9D7397919ED /* FirebaseStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
