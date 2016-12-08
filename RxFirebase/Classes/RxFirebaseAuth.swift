@@ -17,7 +17,7 @@ public extension Reactive where Base: FIRAuth {
      - The current user changes, or,
      - The current user's access token changes.
      */
-    var addAuthStateDidChangeListener: Observable<(FIRAuth, FIRUser?)> {
+    var user: Observable<FIRUser?> {
         get {
             return Observable.create { observer in
                 let listener = self.base.addStateDidChangeListener { (auth, user) in
