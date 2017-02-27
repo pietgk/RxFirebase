@@ -166,12 +166,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACEF1AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RxFirebase_Example" */;
 			buildPhases = (
-				944C8942C3F340DC4365F8B0 /* 📦 Check Pods Manifest.lock */,
+				944C8942C3F340DC4365F8B0 /* [CP] Check Pods Manifest.lock */,
 				607FACCC1AFB9204008FA782 /* Sources */,
 				607FACCD1AFB9204008FA782 /* Frameworks */,
 				607FACCE1AFB9204008FA782 /* Resources */,
-				804855B0613C8BE053B9A624 /* 📦 Embed Pods Frameworks */,
-				98398309EF70B6D10AB630A1 /* 📦 Copy Pods Resources */,
+				804855B0613C8BE053B9A624 /* [CP] Embed Pods Frameworks */,
+				98398309EF70B6D10AB630A1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -186,12 +186,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "RxFirebase_Tests" */;
 			buildPhases = (
-				E1FC2347463DB34BCA244A83 /* 📦 Check Pods Manifest.lock */,
+				E1FC2347463DB34BCA244A83 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				B95E4D070990B7BF68B72C79 /* 📦 Embed Pods Frameworks */,
-				B168629AC375AE191659CB18 /* 📦 Copy Pods Resources */,
+				B95E4D070990B7BF68B72C79 /* [CP] Embed Pods Frameworks */,
+				B168629AC375AE191659CB18 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -262,14 +262,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		804855B0613C8BE053B9A624 /* 📦 Embed Pods Frameworks */ = {
+		804855B0613C8BE053B9A624 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -277,29 +277,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxFirebase_Example/Pods-RxFirebase_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		944C8942C3F340DC4365F8B0 /* 📦 Check Pods Manifest.lock */ = {
+		944C8942C3F340DC4365F8B0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		98398309EF70B6D10AB630A1 /* 📦 Copy Pods Resources */ = {
+		98398309EF70B6D10AB630A1 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,14 +307,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxFirebase_Example/Pods-RxFirebase_Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B168629AC375AE191659CB18 /* 📦 Copy Pods Resources */ = {
+		B168629AC375AE191659CB18 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,14 +322,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxFirebase_Tests/Pods-RxFirebase_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B95E4D070990B7BF68B72C79 /* 📦 Embed Pods Frameworks */ = {
+		B95E4D070990B7BF68B72C79 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,19 +337,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RxFirebase_Tests/Pods-RxFirebase_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E1FC2347463DB34BCA244A83 /* 📦 Check Pods Manifest.lock */ = {
+		E1FC2347463DB34BCA244A83 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -444,6 +444,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -480,6 +481,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_VERSION = 3.0.1;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
