@@ -20,6 +20,10 @@ it, simply add the following line to your Podfile:
 pod "RxFirebase"
 ```
 
+This repo has pull request 'Updates to Swift 3.0 and RxSwift 3.0' merged.
+
+
+
 ## Author
 
 Maximilian Alexander, max@zinkpulse.com
